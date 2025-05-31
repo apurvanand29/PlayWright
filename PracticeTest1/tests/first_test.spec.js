@@ -7,7 +7,12 @@ const { test, expect } = require('@playwright/test')
 // test takes two parameters: a description of the test and an async function that contains the test logic.
 // async function is used to allow the use of await within the function
 // page is an object provided by Playwright that represents a single tab in the browser
-test('My first PlayWright test', async ({ page }) => {
+test('My first PlayWright test', async ({ page, context }) => {
+    await context.tracing.start({ screenshots: true, snapshots: true, sources: true })
+    // Navigate to the specified URL
     await page.goto('https://github.com/apurvanand29/')
     await expect(page).toHaveTitle('apurvanand29 (Apurva Anand) · GitHub')
+
+    await context.tracing.stop({ path: 'trace.zip' })
+
 })
