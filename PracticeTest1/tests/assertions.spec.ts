@@ -3,7 +3,7 @@ import { test, expect } from '@playwright/test';
 test('Assertions', async ({ page }) => {
 
     await page.goto('https://kitchen.applitools.com')
-    await page.pause()
+
     //Assertions
     //check if text is present on the webpage
     await expect(page.locator('text=The Kitchen')).toHaveCount(1)
@@ -27,4 +27,13 @@ test('Assertions', async ({ page }) => {
     //check if element has specific attribute
     await expect(page.locator('text=The Kitchen')).toHaveAttribute('class', 'chakra-heading css-dpmy2a')
     await expect(page.locator('text=The Kitchen')).toHaveClass(/.*css-dpmy2a/)
+
+    //check page URL
+    await expect(page).toHaveURL(/kitchen.applitools.com/)
+    await expect(page).toHaveTitle(/.*Kitchen/)
+
+    await page.pause()
+
+    //validate screenshot
+    await expect(page).toHaveScreenshot()
 })
