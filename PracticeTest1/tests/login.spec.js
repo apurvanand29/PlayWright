@@ -19,7 +19,7 @@ test.only('Login demo test 2', async ({ page }) => {
     await page.locator('[placeholder="Username"]').fill('Admin')
     await page.locator('[placeholder="Password"]').fill('admin123')
     await page.locator('button:has-text("Login")').click()
-    await page.getByText('manda user').click()
+    await page.getByText('mandaTest 81 user').click()
     await page.getByText('Logout').click();
 
 })
