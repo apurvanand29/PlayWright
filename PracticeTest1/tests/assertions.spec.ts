@@ -14,13 +14,17 @@ test('Assertions', async ({ page }) => {
 
     //check if element is visible on the webpage
     await expect(page.locator('text=The Kitchen')).toBeVisible()
-    await expect.soft(page.locator('text=The Kitchen')).toBeHidden()
+    //await expect.soft(page.locator('text=The Kitchen')).toBeHidden()
 
     //check if element is enabled on the webpage
     await expect(page.locator('text=The Kitchen')).toBeEnabled()
-    await expect.soft(page.locator('text=The Kitchen')).toBeDisabled()
+    //await expect.soft(page.locator('text=The Kitchen')).toBeDisabled()
 
     //check if element has specific text
     await expect(page.locator('text=The Kitchen')).toHaveText('The Kitchen')
-    await expect.soft(page.locator('text=The Kitchen')).toHaveText('The Kitchen1')
+    // await expect.soft(page.locator('text=The Kitchen')).toHaveText('The Kitchen1')
+
+    //check if element has specific attribute
+    await expect(page.locator('text=The Kitchen')).toHaveAttribute('class', 'chakra-heading css-dpmy2a')
+    await expect(page.locator('text=The Kitchen')).toHaveClass(/.*css-dpmy2a/)
 })
