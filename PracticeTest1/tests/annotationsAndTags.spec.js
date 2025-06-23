@@ -12,6 +12,6 @@ test.fixme('Test 3', async ({ page }) => {
     // This test is marked as "fixme" and will be reported as such in the test results.
 })
 
-test('Test 4', async ({ page }) => {
+test('Test 4 @smoke', async ({ page }) => {
     test.slow();
 })
