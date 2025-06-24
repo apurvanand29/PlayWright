@@ -1,4 +1,4 @@
-class LoginPage {
+exports.LoginPage = class LoginPage {
 
     constructor(page) {
         this.page = page;
@@ -7,7 +7,8 @@ class LoginPage {
         this.loginButton = page.getByRole('button', { name: ' Login' })
     }
 
-    async login() {
+    // created onemethod for login instead of atomic actions
+    async login(username, password) {
         await this.usernameInput.fill(username);
         await this.passwordInput.fill(password);
         await this.loginButton.click();
