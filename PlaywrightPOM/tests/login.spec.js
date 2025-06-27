@@ -1,5 +1,5 @@
 import { test, expect } from '@playwright/test';
-import { loginPage } from '../pages/login';
+import { LoginPage } from '../pages/login';
 
 
 // to run: npx playwright test login --project chromium --headed
